@@ -52,14 +52,14 @@ export default {
 </script>
 
 <template>
-  <div class="max-w-sm m-auto">
-    <h1 class="text-4xl font-bold underline mb-6">Capitals Quiz</h1>
+  <div class="grid max-w-sm max-h m-auto h-screen">
+    <h1 class="text-4xl font-bold m-6 border-b-2">Capitals Quiz</h1>
     <div v-if="ok" class="flex flex-col items-center">
       <h1 class="text-2xl font-bold mt-6">{{country}}</h1>
       <img :src="flag" style="width:300px" class="border-2 mt-2 mb-8"/>
       <div class="flex flex-col items-center">
         <button class="m-2 bg-transparent text-gray-700
-          font-semibold py-2 px-4 border border-gray-200 rounded" @click="solve" v-for="capital in capitals">
+          font-semibold py-2 px-4 border border-gray-400 rounded" @click="solve" v-for="capital in capitals">
           {{ capital }}
         </button>
       </div>
@@ -73,5 +73,8 @@ export default {
         <button class="bg-green-500 text-white font-bold py-2 px-4 rounded" @click="play">Play again!</button>
       </div>
     </div>
+    <p class="text-sm font-bold mt-10">Made with love by <a
+       class="underline"
+       href="http://www.pmareke.com">@pmareke</a> </p>
   </div>
 </template>
