@@ -54,10 +54,11 @@ export default {
       <h1>Hits: {{hits}}</h1>
       <h1>{{country}}</h1>
       <img :src="flag" style="width:300px"/>
-      <hr>
-      <button @click="solve" v-for="capital in capitals">
-        {{ capital }}
-      </button>
+      <div>
+        <button @click="solve" v-for="capital in capitals">
+          {{ capital }}
+        </button>
+      </div>
     </div>
     <div v-else>
       <p>Sorry, but the correct capital was {{answer}}</p>
