@@ -52,8 +52,13 @@ export default {
 </script>
 
 <template>
-  <div class="grid max-w-sm max-h m-auto h-screen">
-    <a class="text-4xl font-bold m-6 border-b-2" href="/">Capitals Quiz</a>
+  <div class="max-w-sm max-h m-auto h-screen">
+    <div class="m-6 pb-2 border-b-2">
+      <a class="text-4xl font-bold" href="/">Capitals Quiz</a>
+      <p class="text-sm font-bold">Made with love by <a
+         class="underline"
+         href="http://www.pmareke.com">@pmareke</a> </p>
+    </div>
     <div v-if="ok" class="flex flex-col items-center">
       <h1 class="text-2xl font-bold mt-6">{{country}}</h1>
       <div class="m-8 mt-2">
@@ -75,8 +80,5 @@ export default {
         <button class="bg-green-500 text-white font-bold py-2 px-4 rounded" @click="play">Play again!</button>
       </div>
     </div>
-    <p class="text-sm font-bold mt-10">Made with love by <a
-       class="underline"
-       href="http://www.pmareke.com">@pmareke</a> </p>
   </div>
 </template>
