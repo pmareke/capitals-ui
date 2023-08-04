@@ -49,22 +49,26 @@ export default {
 </script>
 
 <template>
-  <div>
-    <div v-if="ok">
-      <h1>Hits: {{hits}}</h1>
-      <h1>{{country}}</h1>
-      <img :src="flag" style="width:300px"/>
-      <div>
-        <button @click="solve" v-for="capital in capitals">
+  <div class="max-w-sm m-auto">
+    <div v-if="ok" class="flex flex-col items-center">
+      <h1 class="text-3xl">Hits: {{hits}}</h1>
+      <h1 class="text-2xl font-bold mt-8">{{country}}</h1>
+      <img :src="flag" style="width:300px" class="border-2 mt-2 mb-8"/>
+      <div class="flex flex-col items-center">
+        <button class="m-2 bg-transparent hover:bg-green-500 text-gray-700
+          font-semibold hover:text-white py-2 px-4 border border-gray-200 hover:border-transparent rounded" @click="solve" v-for="capital in capitals">
           {{ capital }}
         </button>
       </div>
     </div>
-    <div v-else>
-      <p>Sorry, but the correct capital was {{answer}}</p>
-      <p>You did a strike of {{hits}} hits!</p>
-      <Twitter :hits="hits" />
-      <button @click="play">Play again!</button>
+    <div class="flex flex-col items-center" v-else>
+      <p class="text-2xl mb-4">Sorry, but the correct capital was</p>
+      <p class="text-3xl font-bold mb-8">{{answer}}</p>
+      <p class="text text-xl">You did a strike of <b>{{hits}}</b> hits!</p>
+      <div class="mt-8 flex flex-col">
+        <Twitter class="mb-4" :hits="hits" />
+        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" @click="play">Play again!</button>
+      </div>
     </div>
   </div>
 </template>

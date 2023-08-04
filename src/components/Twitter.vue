@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-    <button>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         <ShareNetwork
             network="twitter"
             url="https://capitalsui.onrender.com/"
