@@ -58,8 +58,8 @@ export default {
       <h1 class="text-2xl font-bold mt-8">{{country}}</h1>
       <img :src="flag" style="width:300px" class="border-2 mt-2 mb-8"/>
       <div class="flex flex-col items-center">
-        <button class="m-2 bg-transparent hover:bg-green-500 text-gray-700
-          font-semibold hover:text-white py-2 px-4 border border-gray-200 hover:border-transparent rounded" @click="solve" v-for="capital in capitals">
+        <button class="m-2 bg-transparent text-gray-700
+          font-semibold py-2 px-4 border border-gray-200 hover:border-gray-500 rounded" @click="solve" v-for="capital in capitals">
           {{ capital }}
         </button>
       </div>
