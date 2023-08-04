@@ -53,6 +53,7 @@ export default {
 
 <template>
   <div class="max-w-sm m-auto">
+    <h1 class="text-4xl font-bold underline mb-6">Capitals Quiz</h1>
     <div v-if="ok" class="flex flex-col items-center">
       <h1 class="text-3xl">Hits: {{hits}}</h1>
       <h1 class="text-2xl font-bold mt-8">{{country}}</h1>
