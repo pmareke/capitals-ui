@@ -10,7 +10,7 @@ import Capitals from './components/Capitals'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Capitals
   }
 }
 </script>
