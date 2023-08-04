@@ -62,7 +62,8 @@ export default {
     <div v-if="ok" class="flex flex-col items-center">
       <h1 class="text-2xl font-bold mt-6">{{country}}</h1>
       <div class="m-8 mt-2">
-        <img :src="flag" class="border-2 border-gray-300 p-1"/>
+        <img :src="flag" class="border-2 border-gray-300 p-1"
+        style="width:300px;height:200px"/>
       </div>
       <div class="flex flex-col items-center w-2/3">
         <button class="w-full m-2 bg-transparent text-gray-700
