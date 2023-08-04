@@ -53,12 +53,14 @@ export default {
 
 <template>
   <div class="grid max-w-sm max-h m-auto h-screen">
-    <h1 class="text-4xl font-bold m-6 border-b-2">Capitals Quiz</h1>
+    <a class="text-4xl font-bold m-6 border-b-2" href="/">Capitals Quiz</a>
     <div v-if="ok" class="flex flex-col items-center">
       <h1 class="text-2xl font-bold mt-6">{{country}}</h1>
-      <img :src="flag" style="width:300px" class="border-2 mt-2 mb-8"/>
-      <div class="flex flex-col items-center">
-        <button class="m-2 bg-transparent text-gray-700
+      <div class="m-8 mt-2">
+        <img :src="flag" class="border-2 border-gray-300 p-1"/>
+      </div>
+      <div class="flex flex-col items-center w-2/3">
+        <button class="w-full m-2 bg-transparent text-gray-700
           font-semibold py-2 px-4 border border-gray-400 rounded" @click="solve" v-for="capital in capitals">
           {{ capital }}
         </button>
