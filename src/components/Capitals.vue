@@ -8,6 +8,9 @@ export default {
   },
   methods: {
     async play() {
+      if (!this.ok) {
+        this.hits = 0
+      }
       const response = await axios.get('https://capitals.onrender.com/api/v1/capitals/play')
       const data = response.data
       this.flag = data.country.flag.image
