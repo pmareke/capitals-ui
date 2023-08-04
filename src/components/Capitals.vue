@@ -59,7 +59,7 @@ export default {
       <img :src="flag" style="width:300px" class="border-2 mt-2 mb-8"/>
       <div class="flex flex-col items-center">
         <button class="m-2 bg-transparent text-gray-700
-          font-semibold py-2 px-4 border border-gray-200 hover:border-gray-500 rounded" @click="solve" v-for="capital in capitals">
+          font-semibold py-2 px-4 border border-gray-200 rounded" @click="solve" v-for="capital in capitals">
           {{ capital }}
         </button>
       </div>
@@ -70,7 +70,7 @@ export default {
       <p class="text text-xl">You did a strike of <b>{{hits}}</b> hits!</p>
       <div class="mt-8 flex flex-col">
         <Twitter class="mb-4" :hits="hits" />
-        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" @click="play">Play again!</button>
+        <button class="bg-green-500 text-white font-bold py-2 px-4 rounded" @click="play">Play again!</button>
       </div>
     </div>
   </div>
