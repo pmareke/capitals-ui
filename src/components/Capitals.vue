@@ -56,7 +56,7 @@ export default {
     <h1 class="text-4xl font-bold underline mb-6">Capitals Quiz</h1>
     <div v-if="ok" class="flex flex-col items-center">
       <h1 class="text-3xl">Hits: {{hits}}</h1>
-      <h1 class="text-2xl font-bold mt-8">{{country}}</h1>
+      <h1 class="text-2xl font-bold mt-6">{{country}}</h1>
       <img :src="flag" style="width:300px" class="border-2 mt-2 mb-8"/>
       <div class="flex flex-col items-center">
         <button class="m-2 bg-transparent text-gray-700
