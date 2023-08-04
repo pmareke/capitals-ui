@@ -55,7 +55,6 @@ export default {
   <div class="max-w-sm m-auto">
     <h1 class="text-4xl font-bold underline mb-6">Capitals Quiz</h1>
     <div v-if="ok" class="flex flex-col items-center">
-      <h1 class="text-3xl">Hits: {{hits}}</h1>
       <h1 class="text-2xl font-bold mt-6">{{country}}</h1>
       <img :src="flag" style="width:300px" class="border-2 mt-2 mb-8"/>
       <div class="flex flex-col items-center">
@@ -68,7 +67,7 @@ export default {
     <div class="flex flex-col items-center" v-else>
       <p class="text-2xl mb-4">Sorry, but the correct capital was</p>
       <p class="text-3xl font-bold mb-8">{{answer}}</p>
-      <p class="text text-xl">You did a strike of <b>{{hits}}</b> hits!</p>
+      <p class="text text-xl">You did a streak of <b>{{hits}}</b> hits!</p>
       <div class="mt-8 flex flex-col">
         <Twitter class="mb-4" :hits="hits" />
         <button class="bg-green-500 text-white font-bold py-2 px-4 rounded" @click="play">Play again!</button>
