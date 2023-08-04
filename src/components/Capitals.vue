@@ -15,8 +15,8 @@ export default {
         country: this.country,
         capital
       }
-      // const data = (await axios.post('https://capitals.onrender.com/api/v1/capitals/solve', payload)).data
-      this.ok = true
+      const data = (await axios.post('https://capitals.onrender.com/api/v1/capitals/solve', payload)).data
+      this.ok = data.ok
     }
   },
   mounted () {
