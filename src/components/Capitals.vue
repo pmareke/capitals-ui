@@ -97,7 +97,8 @@ export default {
       <h1 class="text-2xl font-bold mt-6">{{country}}</h1>
       <div class="m-8 mt-2">
         <Transition>
-          <img :src="flag" :key="country" class="border-2 border-gray-300 p-1 object-cover"
+          <img :src="flag" :key="country" class="border-2 border-gray-300 p-1
+                                          object-content"
         style="width:300px;height:200px"/>
         </Transition>
       </div>
