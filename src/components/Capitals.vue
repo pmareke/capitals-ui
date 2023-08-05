@@ -2,7 +2,7 @@
 import Header from './Header'
 import Footer from './Footer'
 import Twitter from './Twitter'
-import { play, solve } from '../functions'
+import { play, solve } from '../functions/capitals'
 
 export default {
   components: {
