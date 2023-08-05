@@ -12,7 +12,11 @@ export default {
   },
   methods: {
     async play() {
-      if (!this.ok) this.hits = 0
+      if (!this.ok) {
+        this.hits = 0
+        this.seconds = 0
+        this.intervalId = setInterval(() => {this.seconds++}, 1000)
+      }
       const {flag, country, capitals, ok} = await play()
       this.flag = flag
       this.country = country
@@ -28,12 +32,14 @@ export default {
         this.play()
       } else {
         this.answer = answer
+        clearInterval(this.intervalId);
       }
     }
   },
   mounted () {
     this.ok = true
     this.play()
+    this.intervalId = setInterval(() => {this.seconds++}, 1000)
   },
   data() {
       return {
@@ -42,13 +48,22 @@ export default {
         capitals: [],
         answer: null,
         ok: false,
-        hits: 0
+        hits: 0,
+        seconds: 0
       }
     },
 }
 </script>
 
 <style scoped>
+  .game {
+    position: relative;
+  }
+  .timer {
+    position: absolute;
+    top: -10px;
+    right: auto;
+  }
   .v-leave,
   .v-enter-to {
       position: relative;
@@ -74,10 +89,12 @@ export default {
 <template>
   <div class="flex flex-col max-w-sm max-h m-auto h-screen">
     <Header />
-    <div v-if="ok" class="flex flex-col items-center">
-      <Transition>
-        <h1 :key="country" class="text-2xl font-bold mt-6">{{country}}</h1>
-      </Transition>
+    <div v-if="ok" class="game flex flex-col items-center">
+      <div class="timer flex items-baseline">
+        <font-awesome-icon class="text-m mr-2" :icon="['far', 'clock']" />
+        <p class="text-2xl font-bold">{{seconds}}s</p>
+      </div>
+      <h1 class="text-2xl font-bold mt-6">{{country}}</h1>
       <div class="m-8 mt-2">
         <Transition>
           <img :src="flag" :key="country" class="border-2 border-gray-300 p-1 object-cover"
@@ -92,12 +109,14 @@ export default {
       </div>
     </div>
     <div class="flex flex-col items-center" v-else>
-      <p class="text-2xl mb-4">Sorry, but the correct capital was</p>
+      <p class="text text-xl mb-8">You got <b>{{hits}} hits</b> in <b>{{seconds}} seconds</b>!</p>
+      <p class="text-2xl mb-4">Sorry, but the capital of <b>{{country}}</b> is:</p>
       <p class="text-3xl font-bold mb-8">{{answer}}</p>
-      <p class="text-xl mb-8 italic">You can know more about {{country}} <a class="font-bold" :href="'https://www.google.com/search?q=' + country">here</a></p>
-      <p class="text text-xl">You got <b>{{hits}}</b> in a row!</p>
+      <p class="text-xl italic">You can know more about {{country}} <a
+        class="font-bold" :href="'https://www.google.com/search?q=' +
+        country">here</a>.</p>
       <div class="mt-8 flex flex-col">
-        <Twitter class="mb-4" :hits="hits" />
+        <Twitter class="mb-4" :hits="hits" :seconds="seconds" />
         <button class="bg-green-500 text-white font-bold py-2 px-4 rounded" @click="play">Play again!</button>
       </div>
     </div>

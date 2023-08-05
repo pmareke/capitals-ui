@@ -5,9 +5,10 @@ import App from './App'
 import VueSocialSharing from 'vue-social-sharing'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faFlag } from '@fortawesome/free-regular-svg-icons'
+import { faFlag, faClock } from '@fortawesome/free-regular-svg-icons'
 
 library.add(faFlag)
+library.add(faClock)
 
 Vue.config.productionTip = false
 Vue.use(VueSocialSharing);
