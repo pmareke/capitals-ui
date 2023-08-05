@@ -1,6 +1,6 @@
 <script>
-import axios from 'axios'
 import Twitter from './Twitter'
+import { play, solve } from '../functions'
 
 export default {
   components: {
@@ -8,30 +8,23 @@ export default {
   },
   methods: {
     async play() {
-      if (!this.ok) {
-        this.hits = 0
-      }
-      const response = await axios.get('https://capitals.onrender.com/api/v1/capitals/play')
-      const data = response.data
-      this.flag = data.country.flag.image
-      this.country = data.country.name
-      this.capitals = data.capitals
+      if (!this.ok) this.hits = 0
+      const {flag, country, capitals, ok} = await play()
+      this.flag = flag
+      this.country = country
+      this.capitals = capitals
       this.ok = true
     },
     async solve(event) {
       const capital = event.srcElement.innerText
-      const payload = {
-        country: this.country,
-        capital
-      }
-      const response = await axios.post('https://capitals.onrender.com/api/v1/capitals/solve', payload)
-      const data = response.data
-      this.ok = data.ok
-      if (this.ok) {
+      const country = this.country
+      const { ok, answer } = await solve(country, capital)
+      this.ok = ok
+      if (ok) {
         this.hits += 1
         this.play()
       } else {
-        this.answer = data.capital
+        this.answer = answer
       }
     }
   },
