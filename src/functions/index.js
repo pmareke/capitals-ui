@@ -9,9 +9,9 @@ export const play = async () => {
   return { flag: flag.image, country: name, capitals }
 }
 
-export const solve = async (country, capital) => {
-  const payload = { country, capital }
+export const solve = async (country, user_capital) => {
+  const payload = { country, capital: user_capital }
   const response = await axios.post(`${API_URL}/solve`, payload)
-  const { ok, answer } = response.data
-  return { ok, answer }
+  const { ok, capital } = response.data
+  return { ok, answer: capital }
 }
