@@ -1,9 +1,13 @@
 <script>
+import Header from './Header'
+import Footer from './Footer'
 import Twitter from './Twitter'
 import { play, solve } from '../functions'
 
 export default {
   components: {
+    Header,
+    Footer,
     Twitter
   },
   methods: {
@@ -44,17 +48,41 @@ export default {
 }
 </script>
 
+<style scoped>
+  .v-leave,
+  .v-enter-to {
+      position: relative;
+      opacity: 1;
+  }
+
+  .v-enter,
+  .v-leave-to {
+      position: absolute;
+      opacity: 0;
+  }
+  .v-enter-active,
+  .v-leave-active {
+    transition: opacity 0.5s ease;
+  }
+
+  .v-enter-from,
+  .v-leave-to {
+    opacity: 0;
+  }
+</style>
+
 <template>
   <div class="flex flex-col max-w-sm max-h m-auto h-screen">
-    <div class="flex justify-center items-center m-6 pb-2 border-b-2">
-      <a class="mr-2 text-4xl font-bold" href="/">Capitals Quiz</a>
-      <font-awesome-icon class="text-3xl" :icon="['far', 'flag']" />
-    </div>
+    <Header />
     <div v-if="ok" class="flex flex-col items-center">
-      <h1 class="text-2xl font-bold mt-6">{{country}}</h1>
+      <Transition>
+        <h1 :key="country" class="text-2xl font-bold mt-6">{{country}}</h1>
+      </Transition>
       <div class="m-8 mt-2">
-        <img :src="flag" class="border-2 border-gray-300 p-1 object-cover"
+        <Transition>
+          <img :src="flag" :key="country" class="border-2 border-gray-300 p-1 object-cover"
         style="width:300px;height:200px"/>
+        </Transition>
       </div>
       <div class="flex flex-col items-center w-2/3">
         <button class="w-full m-2 bg-transparent text-gray-700
@@ -73,8 +101,7 @@ export default {
         <button class="bg-green-500 text-white font-bold py-2 px-4 rounded" @click="play">Play again!</button>
       </div>
     </div>
-    <div class="grow flex items-start justify-center mt-6">
-      <p class="text-m font-bold italic">Made by <a class="underline" href="http://www.pmareke.com">@pmareke</a> </p>
-    </div>
+    <Footer />
   </div>
 </template>
+
