@@ -3,7 +3,7 @@ export default {
   name: "Twitter",
   props: ["hits"],
   setup(props) {
-    return { title: `Capitals is awesome!\nI've got ${props.hits} correct answers, can you beat me?`}
+    return { title: `Capitals Quiz is awesome!\nI got ${props.hits} correct capitals in a row, can you beat me? #capitals #quiz`}
   }
 }
 </script>
