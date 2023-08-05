@@ -17,8 +17,7 @@ export default {
     },
     async solve(event) {
       const capital = event.srcElement.innerText
-      const country = this.country
-      const { ok, answer } = await solve(country, capital)
+      const { ok, answer } = await solve(this.country, capital)
       this.ok = ok
       if (ok) {
         this.hits += 1
@@ -29,6 +28,7 @@ export default {
     }
   },
   mounted () {
+    this.ok = true
     this.play()
   },
   data() {
@@ -45,18 +45,15 @@ export default {
 </script>
 
 <template>
-  <div class="max-w-sm max-h m-auto h-screen">
-    <div class="m-6 pb-2 border-b-2">
-      <a class="text-4xl font-bold" href="/">Capitals Quiz</a>
-      <p class="text-sm font-bold">Made with love by <a
-         class="underline"
-         href="http://www.pmareke.com">@pmareke</a> </p>
+  <div class="flex flex-col max-w-sm max-h m-auto h-screen">
+    <div class="flex justify-center items-center m-6 pb-2 border-b-2">
+      <a class="mr-2 text-4xl font-bold" href="/">Capitals Quiz</a>
+      <font-awesome-icon class="text-3xl" :icon="['far', 'flag']" />
     </div>
     <div v-if="ok" class="flex flex-col items-center">
       <h1 class="text-2xl font-bold mt-6">{{country}}</h1>
       <div class="m-8 mt-2">
-        <img :src="flag" class="border-2 border-gray-300 p-1"
-        style="width:300px;height:200px"/>
+        <img :src="flag" style="width:300px;height:200px"/>
       </div>
       <div class="flex flex-col items-center w-2/3">
         <button class="w-full m-2 bg-transparent text-gray-700
@@ -73,6 +70,9 @@ export default {
         <Twitter class="mb-4" :hits="hits" />
         <button class="bg-green-500 text-white font-bold py-2 px-4 rounded" @click="play">Play again!</button>
       </div>
+    </div>
+    <div class="grow flex items-center justify-center">
+      <p class="text-m font-bold italic">Made by <a class="underline" href="http://www.pmareke.com">@pmareke</a> </p>
     </div>
   </div>
 </template>
