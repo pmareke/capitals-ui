@@ -112,7 +112,8 @@ export default {
       <p class="text text-xl mb-8">You got <b>{{hits}} hits</b> in <b>{{seconds}} seconds</b>!</p>
       <p class="text-2xl mb-4 p-2">Sorry, but the capital of <b>{{country}}</b> is:</p>
       <p class="text-3xl font-bold mb-8">{{answer}}</p>
-      <p class="text-xl italic p-2">You can know more about {{country}} <a
+      <p class="text-xl italic p-2">If you can want to know more about this
+         country, please click  <a
         class="font-bold" :href="'https://www.google.com/search?q=' +
         country">here</a>.</p>
       <div class="mt-8 flex flex-col">
