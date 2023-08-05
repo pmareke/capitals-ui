@@ -66,6 +66,7 @@ export default {
     <div class="flex flex-col items-center" v-else>
       <p class="text-2xl mb-4">Sorry, but the correct capital was</p>
       <p class="text-3xl font-bold mb-8">{{answer}}</p>
+      <p class="text-xl mb-8 italic">You can know more about {{country}} <a class="font-bold" :href="'https://www.google.com/search?q=' + country">here</a></p>
       <p class="text text-xl">You got <b>{{hits}}</b> in a row!</p>
       <div class="mt-8 flex flex-col">
         <Twitter class="mb-4" :hits="hits" />
