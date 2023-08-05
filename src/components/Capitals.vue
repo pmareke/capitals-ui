@@ -72,7 +72,7 @@ export default {
         <button class="bg-green-500 text-white font-bold py-2 px-4 rounded" @click="play">Play again!</button>
       </div>
     </div>
-    <div class="grow flex items-center justify-center">
+    <div class="grow flex items-start justify-center mt-6">
       <p class="text-m font-bold italic">Made by <a class="underline" href="http://www.pmareke.com">@pmareke</a> </p>
     </div>
   </div>
