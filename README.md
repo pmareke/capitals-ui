@@ -1,6 +1,6 @@
 # Capitals UI
 
-![Countries UI](/images/countries.png)
+![Capitals UI](/images/capitals.png)
 
 ## How to run it
 
